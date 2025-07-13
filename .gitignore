@@ -217,3 +217,5 @@ __marimo__/
 *.m4a
 
 *_transcription.txt
+*_cleaned.txt
+*_summary.txt
