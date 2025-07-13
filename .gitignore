@@ -216,4 +216,4 @@ __marimo__/
 *.opus
 *.m4a
 
-*.txt
+*_transcription.txt
