@@ -25,6 +25,13 @@ Audio file to text transcript using OpenAI Whisper (default: `tiny` model, langu
       pip install -r requirements.txt
       ```
 
+3. **(Optional) Enable Google Generative AI Summarization**  
+    - To use Google Generative AI for transcript summarization, add your API key to a `.env` file:
+        ```
+        GOOGLE_API_KEY=your_google_api_key_here
+        ```
+    - The script will automatically detect the API key and generate a summary of the transcript using Google Generative AI.
+
 ## Usage
 
 ```bash
