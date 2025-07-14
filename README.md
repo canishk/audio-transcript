@@ -31,18 +31,32 @@ Audio file to text transcript using OpenAI Whisper (default: `tiny` model, langu
         GOOGLE_API_KEY=your_google_api_key_here
         ```
     - The script will automatically detect the API key and generate a summary of the transcript using Google Generative AI.
+    ## Usage
 
-## Usage
+    Start the FastAPI server:
 
-```bash
-python app.py <audio_file> [<whisper_model>] [<language_code>]
-```
+    ```bash
+    uvicorn app:app --reload
+    ```
 
-- `<audio_file>`: Path to the input audio file.
-- `<whisper_model>`: (Optional) Whisper model name (default: `tiny`; options: `base`, `small`, `medium`, `large`).
-- `<language_code>`: (Optional) Language code for transcription (default: `en`; e.g., `en`, `fr`, `es`).
+    ### API Endpoints
 
-The script processes the audio and outputs a transcribed `.txt` file.
+    #### Transcribe Audio
+
+    - **POST** `/transcribe`
+      - **Request**: Multipart/form-data with an audio file.
+      - **Optional Query Parameters**:
+        - `model`: Whisper model name (`tiny`, `base`, `small`, `medium`, `large`). Default: `tiny`
+        - `language`: Language code for transcription (e.g., `en`, `fr`, `es`). Default: `en`
+      - **Response**: JSON with the transcript.
+
+    **Example using `curl`:**
+
+    ```bash
+    curl -X POST "http://localhost:8000/transcribe?model=tiny&language=en" \
+      -F "file=@/path/to/audio.mp3"
+    ```
+
 
 ## License
 
